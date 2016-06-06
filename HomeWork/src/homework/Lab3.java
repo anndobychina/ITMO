@@ -197,13 +197,13 @@ public class Lab3 extends HttpServlet {
 			arrayInt[j] = r;
 		}
 
-		resp.getWriter().println("<table border=\"1\">");
-		for (i = 0; i < 8; i++) {
+		resp.getWriter().println("<table>");
+		for (i = 0; i < 5; i++) {
 			resp.getWriter().println("<tr>");
-			for (j = 0; j < 5; j++) {
+			for (j = 0; j < 8; j++) {
 
 				resp.getWriter()
-						.println("<td>" + arrayInt[i * 5 + j] + "</td>");
+						.println("<td>" + arrayInt[i * 8 + j] + "</td>");
 			}
 			resp.getWriter().println("</tr>");
 		}

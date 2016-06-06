@@ -29,7 +29,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+    <style>
+#map-canvas {
+	height: 500px;
+	width: 800px;
+	margin: 10px;
+	padding: 5px;
+	border: 3px black dashed;
+}
+</style>
   </head>
 
   <body>
@@ -65,46 +73,45 @@
       </div>
     </nav>
 <div class="container">
-				<form role="form">
-					<p>Введите числа и выберите операцию:</p>
-					<input id="var1" type="text" /> <select id="operation">
-						<option value="0">+</option>
-						<option value="1">-</option>
-						<option value="2">*</option>
-						<option value="3">:</option>
-					</select> <input id="var2" type="text" />
-
-				</form>
-
-				<button id="calc">Посчитать</button>
-
-				<p>
-					Результат операции: <b><span style="color: red" id="result"></span></b>
-				</p>
+				<div id="map-canvas"></div>
 	</div>
 
 
+ <script>
 
+function initMap() {
+  var metka = {lat: 60.053209, lng: 30.331288};
+  
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 20,
+    center: metka
+  });
+  var contentString = 'Гетто';
+
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  var marker = new google.maps.Marker({
+    position: metka,
+    map: map,
+    title: 'Проспект просвещения'
+  });
+  metka.addListener('click', function() {
+    infowindow.open(map, metka);
+  });
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpa1s2kmhBmh84i8WUGFXOxyyozimKj9s&callback=initMap"
+        async defer></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/jquery-2.2.4.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="/jquery-2.2.4.min.js"><\/script>')</script>
     <script src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
-    	<script>
-		$(function() {
-			$('#calc').click(
-					function() {
-						var var1 = $('#var1').val();
-						var var2 = $('#var2').val();
-						var operation = $('#operation').val();
-						$('#result').load(
-								"/homework2?var1=" + var1 + "&var2=" + var2
-										+ "&operation=" + operation);
-					});
-		});
-	</script>
   </body>
 </html>
