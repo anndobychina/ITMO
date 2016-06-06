@@ -16,19 +16,27 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>	
 	<servlet>
-		<servlet-name>Java2Servlet</servlet-name>
-		<servlet-class>homework.Java2Servlet</servlet-class>
+		<servlet-name>Lab2</servlet-name>
+		<servlet-class>homework.Lab2</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Java3Servlet</servlet-name>
-		<servlet-class>homework.Java3Servlet</servlet-class>
+		<servlet-name>Lab3</servlet-name>
+		<servlet-class>homework.Lab3</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Java2Servlet</servlet-name>
-		<url-pattern>/java_2</url-pattern>
+		<servlet-name>Lab2</servlet-name>
+		<url-pattern>/lab2</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Java3Servlet</servlet-name>
-		<url-pattern>/java_3</url-pattern>
+		<servlet-name>Lab3</servlet-name>
+		<url-pattern>/lab3</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>OpenData</servlet-name>
+		<servlet-class>homework.OpenData</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OpenData</servlet-name>
+		<url-pattern>/opendata</url-pattern>
 	</servlet-mapping>
 </web-app>

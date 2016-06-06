@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import javax.servlet.http.*;
 
 @SuppressWarnings({ "serial", "unused" })
-public class Java3Servlet extends HttpServlet {
+public class Lab3 extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		resp.setContentType("text/plain;charset=UTF-8");
@@ -32,18 +32,6 @@ public class Java3Servlet extends HttpServlet {
 			case_4(req, resp);
 			break;
 		}
-		/*
-		 * Enumeration mytests = req.getParameterNames(); String[] test = { ""
-		 * }; List<String> zoom = new ArrayList<>(); try { while
-		 * (mytests.hasMoreElements()) {
-		 * zoom.add(mytests.nextElement().toString()); } } catch
-		 * (NoSuchElementException n) {
-		 * 
-		 * } resp.getWriter().println(" содержимое " + mytests.toString());
-		 * 
-		 * for (String z1 : zoom) {
-		 * resp.getWriter().println(" /n Элемент mytests " + z1); }
-		 */
 	}
 
 	void case_1(HttpServletResponse resp) throws IOException {
@@ -150,23 +138,19 @@ public class Java3Servlet extends HttpServlet {
 
 	void case_2(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		try {
-			double int_m = Double.parseDouble(req
-					.getParameter("ex_1_integer_m"));
-			double int_n = Double.parseDouble(req
-					.getParameter("ex_1_integer_n"));
+			int a = Integer.parseInt(req
+					.getParameter("a"));
+			int b = Integer.parseInt(req
+					.getParameter("b"));
 
-			if (abs(int_m - 10) < abs(int_n - 10)) {
+			if (abs(a - 10) < abs(b - 10)) {
 
 				resp.getWriter().println(
-						" Число " + int_m + " ближе к 10 чем " + int_n);
+						" Число " + a + " ближе к 10 чем " + b);
 			} else {
 				resp.getWriter().println(
-						" Число " + int_n + " ближе к 10 чем " + int_m);
+						" Число " + b + " ближе к 10 чем " + a);
 			}
-		} catch (NumberFormatException n) {
-			resp.getWriter().println("В полях m и n должны быть числа");
-		}
 	}
 
 	void case_3(HttpServletRequest req, HttpServletResponse resp)

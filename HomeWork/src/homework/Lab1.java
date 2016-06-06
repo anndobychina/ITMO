@@ -1,6 +1,6 @@
 package homework;
 
-public class Java1 {
+public class Lab1 {
 
 	public static void main(String[] args) {
 		int i = 5, j = 10;
