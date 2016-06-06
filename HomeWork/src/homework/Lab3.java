@@ -15,7 +15,7 @@ public class Lab3 extends HttpServlet {
 			throws IOException {
 		resp.setContentType("text/plain;charset=UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		switch (req.getParameter("my_some_parameter")) {
+		switch (req.getParameter("choose")) {
 		case "1":
 			case_1(resp);
 			break;
@@ -138,18 +138,16 @@ public class Lab3 extends HttpServlet {
 
 	void case_2(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-			int a = Integer.parseInt(req
-					.getParameter("a"));
-			int b = Integer.parseInt(req
-					.getParameter("b"));
+			int number1 = Integer.parseInt(req
+					.getParameter("number1"));
+			int number2 = Integer.parseInt(req
+					.getParameter("number2"));
 
-			if (abs(a - 10) < abs(b - 10)) {
+			if (abs(number1 - 10) < abs(number2 - 10)) {
 
-				resp.getWriter().println(
-						" Число " + a + " ближе к 10 чем " + b);
+				resp.getWriter().println(number1 + " ближе к 10");
 			} else {
-				resp.getWriter().println(
-						" Число " + b + " ближе к 10 чем " + a);
+				resp.getWriter().println(number2 + " ближе к 10");
 			}
 	}
 
@@ -196,8 +194,7 @@ public class Lab3 extends HttpServlet {
 			}
 			arrayInt[j] = r;
 		}
-
-		resp.getWriter().println("<table>");
+		resp.getWriter().println("<table border=\"1\">");
 		for (i = 0; i < 5; i++) {
 			resp.getWriter().println("<tr>");
 			for (j = 0; j < 8; j++) {
@@ -209,36 +206,32 @@ public class Lab3 extends HttpServlet {
 		}
 		resp.getWriter().println("</table>");
 		resp.getWriter().println(
-				"<p>Максимальное значение в массиве " + max + " </p>");
+				"<p>Наибольшее число : " + max + " </p>");
 	}
 	void case_5(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		try {
-			double int_a = Double.parseDouble(req
-					.getParameter("ex_2_integer_a"));
-			double int_b = Double.parseDouble(req
-					.getParameter("ex_2_integer_b"));
-			double int_c = Double.parseDouble(req
-					.getParameter("ex_2_integer_c"));
-			double d=Math.pow(int_b, 2)-4*int_a*int_c;
-			double x1;
-			double x2;
+			int a = Integer.parseInt(req
+					.getParameter("a"));
+			int b = Integer.parseInt(req
+					.getParameter("b"));
+			int с = Integer.parseInt(req
+					.getParameter("c"));
+			int d=(int) (Math.pow(b, 2)-4*a*с);
+			int x1;
+			int x2;
 			if (d>0){
-				d=Math.sqrt(d);
-				x1=-(int_b+d)/(2*int_a);
-				x2=-(int_b-d)/(2*int_a);
+				d=(int) Math.sqrt(d);
+				x1=-(b+d)/(2*a);
+				x2=-(b-d)/(2*a);
 				resp.getWriter().println("<p>X1="+x1+"</p><p>X2="+x2+"</p>");
 			}
 			else if(d==0){
-				x1=-(int_b)/(2*int_a);
-				resp.getWriter().println("<p>Уравнение имеет только 1 корень, так как дискриминант равен 0</p>"+"<p>X="+x1+"</p>");
+				x1=-(b)/(2*a);
+				resp.getWriter().println("<p>Уравнение имеет только один корень</p>"+"<p>X="+x1+"</p>");
 			}
 			else if(d<0){
-				resp.getWriter().println("<p>Уравнение не имеет корней, так как дискриминант меньше 0</p>");
+				resp.getWriter().println("<p>Корней нет</p>");
 			}
-		} catch (NumberFormatException n) {
-			resp.getWriter().println("<p>В полях a, b и c должны быть числа</p>");
-		}
 	}
 
 	private double abs(double d) {
