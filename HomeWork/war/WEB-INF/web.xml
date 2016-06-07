@@ -39,4 +39,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>OpenData</servlet-name>
 		<url-pattern>/opendata</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>FormEx</servlet-name>
+		<servlet-class>homework.FormEx</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FormEx</servlet-name>
+		<url-pattern>/formex</url-pattern>
+	</servlet-mapping>
 </web-app>

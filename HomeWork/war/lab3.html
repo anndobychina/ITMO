@@ -68,8 +68,8 @@
 		<span style="color: red" id="answer_random"></span>
 		<form>
 			<p>
-				<input type="string" id="ex_1_integer_m"><input
-					type="string" id="ex_1_integer_n">
+				<input type="string" id="number1"><input type="string"
+					id="number2">
 			</p>
 		</form>
 		<button id="near10">Ближайшее к 10</button>
@@ -104,36 +104,36 @@
 	<script src="/js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="/js/ie10-viewport-bug-workaround.js"></script>
-	
-<script>
-	$(function() {
-		var choose = 1;
-		$('#answer_random').load("/lab3?choose=" + choose);
-		$('#near10').click(
-				function() {
-					var choose = 2;
-					var number1 = $('#number1').val();
-					var number2 = $('#number2').val();
 
-					$('#near10a').load(
-							"/lab3?choose=" + choose + "&number1=" + number1
-									+ "&number2=" + number2);
-				});
-		$('#roots').click(
-				function() {
-					var choose = 5;
-					var a = $('#a').val();
-					var b = $('#b').val();
-					var c = $('#c').val();
-					$('#rootsa').load(
-							"/lab3?choose=" + choose + "&a=" + a + "&b=" + b
-									+ "&c=" + c);
-				});
-		choose = 3;
-		$('#massiv1').load("/lab3?choose=" + choose);
-		choose = 4;
-		$('#massiv2').load("/lab3?choose=" + choose);
-	});
-</script>
+	<script>
+		$(function() {
+			var choose = 1;
+			$('#answer_random').load("/lab3?choose=" + choose);
+			$('#near10').click(
+					function() {
+						var choose = 2;
+						var number1 = $('#number1').val();
+						var number2 = $('#number2').val();
+
+						$('#near10a').load(
+								"/lab3?choose=" + choose + "&number1="
+										+ number1 + "&number2=" + number2);
+					});
+			$('#roots').click(
+					function() {
+						var choose = 5;
+						var a = $('#a').val();
+						var b = $('#b').val();
+						var c = $('#c').val();
+						$('#rootsa').load(
+								"/lab3?choose=" + choose + "&a=" + a + "&b="
+										+ b + "&c=" + c);
+					});
+			choose = 3;
+			$('#massiv1').load("/lab3?choose=" + choose);
+			choose = 4;
+			$('#massiv2').load("/lab3?choose=" + choose);
+		});
+	</script>
 </body>
 </html>

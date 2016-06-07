@@ -13,7 +13,7 @@ import javax.servlet.http.*;
 public class Lab3 extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		resp.setContentType("text/plain;charset=UTF-8");
+		resp.setContentType("text/plain");
 		resp.setCharacterEncoding("UTF-8");
 		switch (req.getParameter("choose")) {
 		case "1":
@@ -138,10 +138,8 @@ public class Lab3 extends HttpServlet {
 
 	void case_2(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-			int number1 = Integer.parseInt(req
-					.getParameter("number1"));
-			int number2 = Integer.parseInt(req
-					.getParameter("number2"));
+			int number1 = Integer.parseInt(req.getParameter("number1"));
+			int number2 = Integer.parseInt(req.getParameter("number2"));
 
 			if (abs(number1 - 10) < abs(number2 - 10)) {
 
